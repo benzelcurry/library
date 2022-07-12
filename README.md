@@ -1,1 +1,1 @@
-# library
+Book-logging project for The Odin Project's JavaScript pathway.
