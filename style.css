@@ -53,10 +53,28 @@ button.add {
 
 button.add:hover {
     background-color: #868383;
+    cursor: pointer;
 }
 
 button.add:active {
     background-color: #8f8c8c;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+    gap: 20px;
+}
+
+.placeholder {
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: grid;
+    padding: 10px;
+    align-items: center;
 }
 
 /* footer */
