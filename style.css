@@ -98,7 +98,7 @@ button.add:active {
 
 /* The popup form - hidden by default */
 .form-popup {
-  display: flex;
+  display: none;
   justify-self: center;
   align-self: center;
   margin-top: -250px;
@@ -138,7 +138,7 @@ input[type=checkbox] {
 }
 
 /* Set a style for the submit button */
-.form-container .btn {
+.form-container button {
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
@@ -151,12 +151,12 @@ input[type=checkbox] {
 }
 
 /* Add a red background color to the cancel button */
-.form-container .cancel {
+.form-container .btn-cancel {
   background-color: red;
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover {
+.form-container button:hover {
   opacity: 1;
 }
 

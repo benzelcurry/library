@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- header -->
@@ -39,24 +39,24 @@
                 <input type="checkbox" id="read" name="read">
 
                 <div class="popup-buttons">
-                    <button type="submit" class="btn">Submit</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <button class="btn-submit" onclick="closeForm()">Submit</button>
+                    <button class="btn-cancel" onclick="closeForm()">Close</button>
                 </div>
             </form>
         </div>
 
         <div class="cards">
             <div class="placeholder">
-                <div class="title">Title:</div>
-                <div class="author">Author:</div>
-                <div class="pages">Pages:</div>
-                <div class="read">Read?:</div>
+                <div class="title-card">Title:</div>
+                <div class="author-card">Author:</div>
+                <div class="pages-card">Pages:</div>
+                <div class="read-card">Read?:</div>
             </div>
             <div class="placeholder">
-                <div class="title">Title:</div>
-                <div class="author">Author:</div>
-                <div class="pages">Pages:</div>
-                <div class="read">Read?:</div>
+                <div class="title-card">Title:</div>
+                <div class="author-card">Author:</div>
+                <div class="pages-card">Pages:</div>
+                <div class="read-card">Read?:</div>
             </div>
         </div>
     </div>
