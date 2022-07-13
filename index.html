@@ -18,8 +18,33 @@
     <!-- main content -->
     <div class="main">
         <div class="add-book">
-            <button class="add">+ Add Book</button>
+            <button class="add" onclick="openForm()">+ Add Book</button>
         </div>
+
+        <!-- pop-up form -->
+        <div class="form-popup" id="myForm">
+            <form class="form-container">
+                <h1>Enter book info</h1>
+
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" name="pages">
+
+                <label for="read">Have you finished it?</label>
+                <input type="checkbox" id="read" name="read">
+
+                <div class="popup-buttons">
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </div>
+            </form>
+        </div>
+
         <div class="cards">
             <div class="placeholder">
                 <div class="title">Title:</div>
