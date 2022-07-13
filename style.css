@@ -62,14 +62,16 @@ button.add:active {
 
 .cards {
     display: grid;
+    justify-self: center;
     grid-template-columns: repeat(4, 1fr);
     padding: 20px;
     gap: 20px;
 }
 
-.placeholder {
+.cards > div {
     height: 400px;
     width: 300px;
+    display: grid;
     border-radius: 10px;
     background-color: #fff;
     border: solid 2px #808080;

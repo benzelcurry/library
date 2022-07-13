@@ -35,15 +35,16 @@ form.addEventListener('submit', handleForm);
 // create objects for managing the books
 
 let myLibrary = [];
+let justTitles = [];
+let justAuthors = [];
+let justPages = [];
+let justReads = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
-        console.log(title, author, pages, read);
-    }
 }
 
 function addBookToLibrary(newBook) {
@@ -52,3 +53,21 @@ function addBookToLibrary(newBook) {
 
 const book1 = new Book('Book 1', 'Book Man', 57, 'yes');
 const book2 = new Book('Book 2', 'Book Gal', 273, 'no');
+
+// add additional cards to the board
+
+function addCard() {
+    let cardContainer = document.querySelector(".cards");
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        let cards = document.createElement("div");
+
+        justTitles = myLibrary.map(Book => Book.title);
+        justAuthors = myLibrary.map(Book => Book.author);
+        justPages = myLibrary.map(Book => Book.pages);
+        justReads = myLibrary.map(Book => Book.read);
+
+        cards.innerText = `Title: ${justTitles[i]} \n Author: ${justAuthors[i]} \n Pages: ${justPages[i]} \n Read?: ${justReads[i]}`;
+        cardContainer.appendChild(cards);
+    }
+}
