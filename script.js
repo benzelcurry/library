@@ -8,25 +8,6 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-//
-
-/* let title = document.querySelector("#title");
-let author = document.querySelector("#author");
-let pages = document.querySelector("#pages");
-let read = document.querySelector("#read");
-let submitButton = document.querySelector(".btn-submit");
-let titleOutput = document.querySelector(".title-card");
-let authorOutpout = document.querySelector(".author-card");
-let pagesOutput = document.querySelector(".pages-card");
-let readOutput = document.querySelector(".read-card");
-
-submitButton.addEventListener('click', (event) => {
-    titleOutput.textContent = `Title: ${title.value}`;
-    authorOutpout.textContent = `Author: ${author.value}`;
-    pagesOutput.textContent =  `Pages: ${pages.value}`;
-    readOutput.textContent = `Read?: ${read.value}`;
-}) */
-
 let form = document.querySelector(".form-container");
 
 function handleForm(event) { event.preventDefault(); } 
@@ -71,3 +52,27 @@ function addCard() {
         cardContainer.appendChild(cards);
     }
 }
+
+// allow user input to create new books in library
+
+function createBook(title, author, pages, read) {
+    let bookTitle = document.querySelector("#title");
+    let bookAuthor = document.querySelector("#author");
+    let bookPages = document.querySelector("#pages");
+    let bookRead = document.querySelector("#read");
+    let submitButton = document.querySelector(".btn-submit");
+
+    submitButton.addEventListener('click', (event) => {
+        console.log("Here");
+        const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.value);
+        addBookToLibrary(newBook);
+        addCard();
+        bookTitle.value = "";
+        bookAuthor.value = "";
+        bookPages.value = "";
+        bookRead.checked = false;
+        closeForm();
+    })
+}
+
+createBook();
