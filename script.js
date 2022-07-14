@@ -40,7 +40,7 @@ const book2 = new Book('Book 2', 'Book Gal', 273, 'no');
 function addCard() {
     let cardContainer = document.querySelector(".cards");
 
-    for (let i = 0; i < myLibrary.length; i++) {
+    for (let i = (myLibrary.length - 1); i < myLibrary.length; i++) {
         let cards = document.createElement("div");
 
         justTitles = myLibrary.map(Book => Book.title);
