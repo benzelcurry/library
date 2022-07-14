@@ -169,3 +169,28 @@ input[type=checkbox] {
     margin: 40px;
     justify-content: center;
 }
+
+#delete-button {
+    padding: 10px;
+    height: 40px;
+    width: 140px;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+#delete-button:hover {
+    opacity: 1.0;
+}
+
+#delete-button:active {
+    opacity: 0.6;
+}
