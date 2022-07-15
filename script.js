@@ -111,6 +111,8 @@ function createBook(title, author, pages, read) {
         if (bookTitle.value == "" || bookAuthor.value == "" || bookPages.value == "") {
             alert("Please fill out all fields before submitting");
             return false;
+        } else {
+            return true;
         }
     }
 

@@ -12,7 +12,8 @@ body {
 /* header */
 
 .header {
-    background-color: #808080;
+    background-color: #166534;
+    color: #dcfce7;
     display: grid;
     align-items: center;
     justify-items: center;
@@ -31,7 +32,7 @@ body {
 /* main content */
 
 .main {
-    background-color: #a19f9f;
+    background-color: #dcfce7;
     display: grid;
     grid-template-rows: 1fr 4fr;
 }
@@ -46,18 +47,19 @@ button.add {
     border: none;
     border-radius: 10px;
     padding: 10px;
-    background-color: #a19f9f;
+    background-color: #166534;
+    color: #dcfce7;
     font-size: 24px;
     font-weight: bold;
 }
 
 button.add:hover {
-    background-color: #868383;
+    background-color: #20964d;
     cursor: pointer;
 }
 
 button.add:active {
-    background-color: #8f8c8c;
+    background-color: #2ac566;
 }
 
 .cards {
@@ -73,8 +75,8 @@ button.add:active {
     width: 300px;
     display: grid;
     border-radius: 10px;
-    background-color: #fff;
-    border: solid 2px #808080;
+    background-color: #f0fdf4;
+    border: solid 2px #166534;
     display: grid;
     padding: 10px;
     align-items: center;
@@ -83,7 +85,7 @@ button.add:active {
 /* footer */
 
 .footer {
-    background-color: #808080;
+    background-color: #dcfce7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,7 +116,7 @@ button.add:active {
   display: grid;
   width: 750px;
   padding: 10px;
-  background-color: white;
+  background-color: #dcfce7;
 }
 
 /* input fields */
@@ -124,19 +126,13 @@ input[type=text], input[type=number] {
   padding: 0 10px 0 10px;
   margin: 5px 0 22px 0;
   border: none;
-  background: #a19f9f;
+  background: #86efac;
   font-size: 16px;
 }
 
 input[type=checkbox] {
     justify-self: start;
     margin: 10px;
-}
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus {
-  background-color: #ddd;
-  outline: none;
 }
 
 /* Set a style for the submit button */
