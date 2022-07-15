@@ -62,6 +62,10 @@ function addCard() {
         justPages = myLibrary.map(Book => Book.pages);
         justReads = myLibrary.map(Book => Book.read);
 
+        if (justReads[i] === "yes") {
+            checkbox.checked = true;
+        }
+
         cards.innerText = `Title: ${justTitles[i]} \n Author: ${justAuthors[i]} \n Pages: ${justPages[i]}`;
         cardContainer.appendChild(cards);
 
@@ -75,9 +79,21 @@ function addCard() {
         checkbox.style.display = "flex";
         checkbox.style.alignSelf = "center";
 
+        //removes individual card from display when delete button is clicked
         deleteButton.addEventListener('click', (event) => {
             cardContainer.removeChild(cards);
             myLibrary.splice(i, 1, "removed");
+        })
+
+        //changes read status of Book object in myLibrary when toggled
+        checkbox.addEventListener('click', (event) => {
+            for (const obj of myLibrary) {
+                if (obj.read == "yes") {
+                    myLibrary[i].read = "no";
+                } else {
+                    myLibrary[i].read = "yes";
+                }
+            }
         })
     }
 }
@@ -91,15 +107,24 @@ function createBook(title, author, pages, read) {
     let bookRead = document.querySelector("#read");
     let submitButton = document.querySelector(".btn-submit");
 
+    function hasRead() {
+        if (bookRead.checked == true) {
+            bookRead.checked = false;
+            return bookRead = "yes";
+        } else {
+            bookRead.checked = false;
+            return bookRead = "no";
+        }
+    }
+
     submitButton.addEventListener('click', (event) => {
-        console.log("Here");
-        const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.value);
+        hasRead();
+        const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead);
         addBookToLibrary(newBook);
         addCard();
         bookTitle.value = "";
         bookAuthor.value = "";
         bookPages.value = "";
-        bookRead.checked = false;
         closeForm();
     })
 }
