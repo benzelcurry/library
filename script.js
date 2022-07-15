@@ -1,5 +1,4 @@
 // open + close controls for the book entry popup form
-
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
@@ -8,19 +7,16 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
+// prevent page from refreshing when submit button is hit
 let form = document.querySelector(".form-container");
 
 function handleForm(event) { event.preventDefault(); } 
 form.addEventListener('submit', handleForm);
 
-// create objects for managing the books
-
+// create library array for holding the user-created books
 let myLibrary = [];
-let justTitles = [];
-let justAuthors = [];
-let justPages = [];
-let justReads = [];
 
+// new book constructor
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -28,12 +24,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+// pushes new books entered by user to library
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
-
-const book1 = new Book('Book 1', 'Book Man', 57, 'yes');
-const book2 = new Book('Book 2', 'Book Gal', 273, 'no');
 
 // add additional cards to the board
 function addCard() {
@@ -56,18 +50,13 @@ function addCard() {
 
         deleteButton.id = "delete-button";
         deleteButton.textContent = "Remove Entry";
+        
+        cards.innerText = `Title: ${myLibrary[i].title} \n Author: ${myLibrary[i].author} \n Pages: ${myLibrary[i].pages}`;
+        cardContainer.appendChild(cards);
 
-        justTitles = myLibrary.map(Book => Book.title);
-        justAuthors = myLibrary.map(Book => Book.author);
-        justPages = myLibrary.map(Book => Book.pages);
-        justReads = myLibrary.map(Book => Book.read);
-
-        if (justReads[i] === "yes") {
+        if (myLibrary[i].read === "yes") {
             checkbox.checked = true;
         }
-
-        cards.innerText = `Title: ${justTitles[i]} \n Author: ${justAuthors[i]} \n Pages: ${justPages[i]}`;
-        cardContainer.appendChild(cards);
 
         cards.appendChild(label);
         label.appendChild(checkbox);
@@ -99,33 +88,43 @@ function addCard() {
 }
 
 // allow user input to create new books in library
-
 function createBook(title, author, pages, read) {
     let bookTitle = document.querySelector("#title");
     let bookAuthor = document.querySelector("#author");
     let bookPages = document.querySelector("#pages");
     let bookRead = document.querySelector("#read");
+    let readStatus
     let submitButton = document.querySelector(".btn-submit");
 
+    // checks if the user has indicated the book has been read or not
     function hasRead() {
-        if (bookRead.checked == true) {
+        if (bookRead.checked === true) {
             bookRead.checked = false;
-            return bookRead = "yes";
+            return readStatus = "yes";
         } else {
-            bookRead.checked = false;
-            return bookRead = "no";
+            return readStatus = "no";
+        }
+    }
+    
+    // checks if user has filled out forms before adding card
+    function validateForm() {
+        if (bookTitle.value == "" || bookAuthor.value == "" || bookPages.value == "") {
+            alert("Please fill out all fields before submitting");
+            return false;
         }
     }
 
     submitButton.addEventListener('click', (event) => {
-        hasRead();
-        const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead);
-        addBookToLibrary(newBook);
-        addCard();
-        bookTitle.value = "";
-        bookAuthor.value = "";
-        bookPages.value = "";
-        closeForm();
+        if (validateForm() == true) {
+            hasRead();
+            const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, readStatus);
+            addBookToLibrary(newBook);
+            addCard();
+            bookTitle.value = "";
+            bookAuthor.value = "";
+            bookPages.value = "";
+            closeForm();
+        }
     })
 }
 
