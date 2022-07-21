@@ -16,12 +16,14 @@ form.addEventListener('submit', handleForm);
 // create library array for holding the user-created books
 let myLibrary = [];
 
-// new book constructor
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+// new book class
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 // pushes new books entered by user to library
@@ -88,7 +90,7 @@ function addCard() {
 }
 
 // allow user input to create new books in library
-function createBook(title, author, pages, read) {
+function createBook() {
     let bookTitle = document.querySelector("#title");
     let bookAuthor = document.querySelector("#author");
     let bookPages = document.querySelector("#pages");
